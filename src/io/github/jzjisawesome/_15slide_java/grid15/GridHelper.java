@@ -20,23 +20,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
 */
-package io.github.jzjisawesome._15slide_java;
+package io.github.jzjisawesome._15slide_java.grid15;
 
-
-//import java.io.*;
+import java.util.*;
 
 /**
- * @todo documentation :)
  *
  * @author John Jekel
  */
-public class Main
+final public class GridHelper
 {
-    /**
-     * @param args The command line arguments
-     */
-    public static void main(String[] args)
+    public static boolean hasWon(Grid grid)
     {
-        System.out.println("15Slide-Java");
+        return Arrays.equals(grid.gridArray, Grid.GOAL_GRID);
     }
 }
