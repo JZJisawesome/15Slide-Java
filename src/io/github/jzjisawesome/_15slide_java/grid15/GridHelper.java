@@ -32,17 +32,48 @@ final public class GridHelper
 {
     public static boolean hasWon(Grid grid)
     {
-        return Arrays.equals(grid.gridArray, Grid.GOAL_GRID);
+        if (hasValidGridArray(grid))
+            return Arrays.equals(grid.gridArray, Grid.GOAL_GRID);
+        else
+            throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static void reIndex(Grid grid)
+    public static boolean hasValidGridArray(Grid grid)
     {
         for(int i = 0; i < 4; ++i)
             for(int j = 0; j < 4; ++j)
             {
-                grid.index[grid.gridArray[i][j]][0] = i;//find tile's y coordinate and copy to index
-                grid.index[grid.gridArray[i][j]][1] = j;//find tile's x coordinate and copy to index
-                
+                if (grid.gridArray[i][j] > 3 || grid.gridArray[i][j] < 0)
+                    return false;//if too high a number (out of bounds)
             }
+        
+        int[] numCount = new int[16];
+        
+        for(int i = 0; i < 4; ++i)
+            for(int j = 0; j < 4; ++j)
+                    numCount[grid.gridArray[i][j]] += 1;//increment each number to see how many of each
+        
+        for (int i = 0; i < 16; ++i)
+        {
+            if (numCount[i] != 1)
+                return false;//if exactly 1 of each number
+        }
+        
+        return true;//everything is good
+    }
+    
+    public static void reIndex(Grid grid)
+    {
+        if (hasValidGridArray(grid))
+        {
+            for(int i = 0; i < 4; ++i)
+                for(int j = 0; j < 4; ++j)
+                {
+                    grid.index[grid.gridArray[i][j]][0] = i;//find tile's y coordinate and copy to index
+                    grid.index[grid.gridArray[i][j]][1] = j;//find tile's x coordinate and copy to index
+                }
+        }
+        else
+            throw new IllegalArgumentException("Grid invalid!");
     }
 }
