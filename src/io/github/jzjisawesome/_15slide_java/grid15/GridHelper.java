@@ -34,4 +34,15 @@ final public class GridHelper
     {
         return Arrays.equals(grid.gridArray, Grid.GOAL_GRID);
     }
+    
+    public static void reIndex(Grid grid)
+    {
+        for(int i = 0; i < 4; ++i)
+            for(int j = 0; j < 4; ++j)
+            {
+                grid.index[grid.gridArray[i][j]][0] = i;//find tile's y coordinate and copy to index
+                grid.index[grid.gridArray[i][j]][1] = j;//find tile's x coordinate and copy to index
+                
+            }
+    }
 }

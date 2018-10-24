@@ -32,15 +32,15 @@ public class Grid
     {
     }
     
-    public Grid(short[][] gridArray)
+    public Grid(int[][] gridArray)
     {
         System.arraycopy(gridArray, 0, this.gridArray, 0, this.gridArray.length);
     }
     
-    public short[][] gridArray  = new short[16][2];
-    public short[][] index      = new short[4][4];
+    public int[][] gridArray  = new int[16][2];
+    public int[][] index      = new int[4][4];
     
-    final public static short[][] GOAL_GRID =
+    final public static int[][] GOAL_GRID =
     {
         {1, 2, 3, 4},
         {5, 6, 7, 8},
