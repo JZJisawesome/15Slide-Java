@@ -32,6 +32,12 @@ public class Grid
     {
     }
     
+    public Grid(Grid grid)
+    {
+        System.arraycopy(grid.gridArray, 0, this.gridArray, 0, this.gridArray.length);
+        System.arraycopy(grid.index, 0, this.index, 0, this.index.length);
+    }
+    
     public Grid(int[][] gridArray)
     {
         System.arraycopy(gridArray, 0, this.gridArray, 0, this.gridArray.length);
