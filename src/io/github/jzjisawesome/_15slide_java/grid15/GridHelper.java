@@ -94,6 +94,53 @@ final public class GridHelper
         return hasValidGridArray(grid) && hasValidIndex(grid);
     }
     
+    public static Grid generateRandomGrid()
+    {
+        //FIXME get rid of single dimentional intermediary array
+        //we have to have it because otherwise std::shuffle only shuffles rows themselves, not inside or in between
+        int[] linearGrid =
+        {
+            1,  2,  3,  4,
+            5,  6,  7,  8,
+            9,  10, 11, 12,
+            13, 14, 15, 0
+        };
+
+        Grid tempGrid = new Grid();//a normal gridArray
+
+        do
+        {
+            simpleShuffle(linearGrid);//shuffle grid randomly with rd
+
+            //copy 2d to 3d array
+            for (int i = 0; i < 4; ++i)
+                for (int j = 0; j < 4; ++j)
+                    tempGrid.gridArray[i][j] = linearGrid[(i * 4) + j];
+            
+            reIndex(tempGrid);//so solvableGrid does not get mad
+        }
+        while (!solvableGrid(tempGrid));//check if grid is solvable
+
+        return tempGrid;
+    }
+    
+    private static void simpleShuffle(int[] linearGrid)
+    {
+        //Based on https://stackoverflow.com/a/1520212
+        //A Durstenfeld shuffle
+        
+        Random generator = new Random(System.currentTimeMillis());
+        
+        for (int i = 15; i > 0; --i)
+        {
+          int index = generator.nextInt(i + 1);
+          // Simple swap
+          int a = linearGrid[index];
+          linearGrid[index] = linearGrid[i];
+          linearGrid[i] = a;
+        }
+    }
+    
     public static boolean solvableGrid(Grid grid)
     {
         if (validGrid(grid))
