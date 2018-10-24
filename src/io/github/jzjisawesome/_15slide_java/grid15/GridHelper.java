@@ -32,10 +32,10 @@ final public class GridHelper
 {
     public static boolean validMove(int tileY, int tileX, Grid grid)
     {
-        if (hasValidGridArray(grid))
+        if (validGrid(grid))
         {
             if (tileY > 3 || tileY < 0 || tileX > 3 || tileX < 0)//not out off array boundries
-                return false;//TODO should throw an exception for this
+                throw new IndexOutOfBoundsException("Coordinates out of bounds!");
             else if (tileY == grid.index[0][0] && tileX == grid.index[0][1])//not no tile itself
                 return false;
             else if (tileY == grid.index[0][0] && ((tileX == grid.index[0][1] - 1) || (tileX == grid.index[0][1] + 1)))//same colum, a row beside
@@ -81,6 +81,11 @@ final public class GridHelper
         return true;//everything is good
     }
     
+    public static boolean validGrid(Grid grid)
+    {
+        return hasValidGridArray(grid) && hasValidIndex(grid);
+    }
+    
     public static boolean hasValidIndex(Grid grid)
     {
         Grid tempGrid = new Grid(grid);
@@ -89,9 +94,46 @@ final public class GridHelper
         return Arrays.equals(grid.index, tempGrid.index);//everything is good
     }
     
-    public static boolean validGrid(Grid grid)
+    public static void swapTile(int tileNum, Grid grid)
     {
-        return hasValidGridArray(grid) && hasValidIndex(grid);
+        if ((tileNum < 16 && tileNum >=0))
+        {
+            int tileY = grid.index[tileNum][0];
+            int tileX = grid.index[tileNum][1];
+            
+            if (validMove(tileY, tileX, grid))
+                swapTile(tileY, tileX, grid);
+            else
+                throw new IllegalArgumentException("Invalid Move");
+        }
+        else
+            throw new IndexOutOfBoundsException("tileNum out of bounds!");
+    }
+    
+    public static void swapTile(int tileY, int tileX, Grid grid)
+    {
+        if (validMove(tileY, tileX, grid))
+        {
+            int tileNum = grid.gridArray[tileY][tileX];
+            
+            //original location of blank tile
+            int oldNoTileY = grid.index[0][0];
+            int oldNoTileX = grid.index[0][1];
+
+            grid.gridArray[grid.index[0][0]][grid.index[0][1]] = tileNum;//moves tile to no tile
+
+            //updates location of moved tile in index
+            grid.index[tileNum][0] = oldNoTileY;
+            grid.index[tileNum][1] = oldNoTileX;
+
+            grid.gridArray[tileY][tileX] = 0;//moves no Tile
+
+            //updates location of noTile in index
+            grid.index[0][0] = tileY;
+            grid.index[0][1] = tileX;
+        }
+        else
+            throw new IllegalArgumentException("Invalid Move");
     }
     
     public static Grid generateRandomGrid()
