@@ -22,6 +22,9 @@
 */
 package io.github.jzjisawesome._15slide_java;
 
+import io.github.jzjisawesome._15slide_java.grid15.Grid;
+import io.github.jzjisawesome._15slide_java.CommandUI;
+
 
 //import java.io.*;
 
@@ -32,11 +35,15 @@ package io.github.jzjisawesome._15slide_java;
  */
 public class Main
 {
+    static Grid gameGrid = new Grid(Grid.GOAL_GRID);
+    static CommandUI terminalUI = new CommandUI();
     /**
      * @param args The command line arguments
      */
     public static void main(String[] args)
     {
         System.out.println("15Slide-Java");
+        
+        CommandUI.printGrid(gameGrid);
     }
 }
