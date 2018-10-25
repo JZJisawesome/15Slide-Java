@@ -62,7 +62,7 @@ final public class GridHelper
         for(int i = 0; i < 4; ++i)
             for(int j = 0; j < 4; ++j)
             {
-                if (grid.gridArray[i][j] > 3 || grid.gridArray[i][j] < 0)
+                if (grid.gridArray[i][j] > 15 || grid.gridArray[i][j] < 0)
                     return false;//if too high a number (out of bounds)
             }
         
