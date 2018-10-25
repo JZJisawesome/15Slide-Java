@@ -23,7 +23,10 @@
 
 package io.github.jzjisawesome._15slide_java;
 
+import java.util.Scanner;
+
 import io.github.jzjisawesome._15slide_java.grid15.*;
+
 
 /**
  *
@@ -32,45 +35,130 @@ import io.github.jzjisawesome._15slide_java.grid15.*;
 
 
 public class CommandUI
-{
+{    
+    private boolean wantsToExit = false;
+    
+    public void handleCommand(String inputtedLine, Grid grid)
+    {
+        Scanner argumentScanner = new Scanner(inputtedLine);
+        
+        
+        
+        String input = argumentScanner.next();
+        
+        //todo use Scanner.hasNextInt for easySlide
+        
+        switch (input)
+        {
+            case "help":
+            {
+                //todo
+                break;
+            }
+            case "demo":
+            {
+                //todo
+                break;
+            }
+            case "newgame":
+            {
+                //todo
+                break;
+            }
+            case "slide":
+            {
+                //todo
+                break;
+            }
+            case "print":
+            {
+                //todo
+                break;
+            }
+            case "save":
+            {
+                //todo
+                break;
+            }
+            case "load":
+            {
+                //todo
+                break;
+            }
+            case "options":
+            {
+                //todo
+                break;
+            }
+            case "enable":
+            {
+                //todo
+                break;
+            }
+            case "disable":
+            {
+                //todo
+                break;
+            }
+            case "about":
+            {
+                //todo
+                break;
+            }
+            case "licence":
+            {
+                break;
+            }
+            case "exit":
+            {
+                wantsToExit = true;//if user wants to exit
+                break;
+            }
+            case "debug":
+            {
+                //todo
+                break;
+            }
+            default:
+            {
+                break;
+            }
+            }
+    }
+    
     public static void printGrid(Grid grid)
     {
-        if (GridHelper.hasValidGridArray(grid))
+        System.out.println("┏━━━┳━━━┳━━━┳━━━┓");//start
+
+        for (int i = 0; i < 4; ++i)
         {
-            System.out.println("┏━━━┳━━━┳━━━┳━━━┓");//start
-
-            for (int i = 0; i < 4; ++i)
+            System.out.print("┃");//coloums
+            for (int j = 0; j < 4; ++j)
             {
-                System.out.print("┃");//coloums
-                for (int j = 0; j < 4; ++j)
+                if (grid.gridArray[i][j] == 0)//if tile is no tile
                 {
-                    if (grid.gridArray[i][j] == 0)//if tile is no tile
-                    {
-                        //no tile is represented by ◉◉◉
-                        //std::cout << termcolor::on_blue << termcolor::white;
-                        System.out.print("◉◉◉");
-                        //std::cout << termcolor::reset;
-                    }
-                    else
-                    {
-                        if (grid.gridArray[i][j] <= 9)//add extra space for single digit numbers
-                            System.out.print(" ");
+                    //no tile is represented by ◉◉◉
+                    //std::cout << termcolor::on_blue << termcolor::white;
+                    System.out.print("◉◉◉");
+                    //std::cout << termcolor::reset;
+                }
+                else
+                {
+                    if (grid.gridArray[i][j] <= 9)//add extra space for single digit numbers
+                        System.out.print(" ");
 
-                        System.out.print(" " + grid.gridArray[i][j]);
-                    }
-
-                    System.out.print("┃");//coloums
+                    System.out.print(" " + grid.gridArray[i][j]);
                 }
 
-                System.out.println();
-
-                if (i <= 2)//all except last line
-                    System.out.println("┣━━━╋━━━╋━━━╋━━━┫");//rows
+                System.out.print("┃");//coloums
             }
-            
-            System.out.println("┗━━━┻━━━┻━━━┻━━━┛");
+
+            System.out.println();
+
+            if (i <= 2)//all except last line
+                System.out.println("┣━━━╋━━━╋━━━╋━━━┫");//rows
         }
-        else
-            throw new IllegalArgumentException("Grid invalid!");
+
+        System.out.println("┗━━━┻━━━┻━━━┻━━━┛");
     }
 }
