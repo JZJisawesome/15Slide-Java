@@ -28,9 +28,9 @@ import java.util.*;
  *
  * @author John Jekel
  */
-final public class GridHelper
+public class GridHelper
 {
-    public static boolean validMove(int tileY, int tileX, Grid grid)
+    public static boolean validMove(int tileY, int tileX, Grid grid) throws IllegalArgumentException, IndexOutOfBoundsException
     {
         if (validGrid(grid))
         {
@@ -49,7 +49,7 @@ final public class GridHelper
             throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static boolean hasWon(Grid grid)
+    public static boolean hasWon(Grid grid) throws IllegalArgumentException
     {
         if (hasValidGridArray(grid))
             return Arrays.equals(grid.gridArray, Grid.GOAL_GRID);
@@ -94,7 +94,7 @@ final public class GridHelper
         return Arrays.equals(grid.index, tempGrid.index);//everything is good
     }
     
-    public static void swapTile(int tileNum, Grid grid)
+    public static void swapTile(int tileNum, Grid grid) throws IllegalArgumentException, IndexOutOfBoundsException
     {
         if ((tileNum < 16 && tileNum >=0))
         {
@@ -183,7 +183,7 @@ final public class GridHelper
         }
     }
     
-    public static boolean solvableGrid(Grid grid)
+    public static boolean solvableGrid(Grid grid) throws IllegalArgumentException
     {
         if (validGrid(grid))
         {
@@ -222,7 +222,7 @@ final public class GridHelper
             throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static void reIndex(Grid grid)
+    public static void reIndex(Grid grid) throws IllegalArgumentException
     {
         if (hasValidGridArray(grid))
         {
