@@ -30,6 +30,14 @@ import java.util.*;
  */
 public class GridHelper
 {
+    public static boolean validMove(int tileNum, Grid grid) throws IllegalArgumentException, IndexOutOfBoundsException
+    {
+        if (tileNum > 0 && tileNum < 16)
+            return validMove(grid.index[tileNum][0], grid.index[tileNum][1], grid);
+        else
+            throw new IllegalArgumentException("tileNum invalid!");
+    }
+    
     public static boolean validMove(int tileY, int tileX, Grid grid) throws IllegalArgumentException, IndexOutOfBoundsException
     {
         if (validGrid(grid))

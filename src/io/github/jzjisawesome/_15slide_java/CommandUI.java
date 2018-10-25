@@ -86,7 +86,7 @@ public class CommandUI
                 }
                 case "slide":
                 {
-                    System.out.println("not implemented");
+                    swapTile(tokenScanner.nextInt(), grid);
                     break;
                 }
                 case "print":
@@ -145,6 +145,48 @@ public class CommandUI
                     break;
                 }
             }
+        }
+    }
+    
+    private void swapTile(int tile, Grid grid)
+    {
+        if (GridHelper.validMove(tile, grid))//instead of a try catch block
+        {
+            GridHelper.swapTile(tile, grid);
+
+            wantsToExit = autoExit && GridHelper.hasWon(grid);//if the game is over and autoExit is on then exit
+
+            /*
+            if (autoSave && (defaultSaveFile != ""))//if auto save is on and there is a default save file
+            {
+                try
+                {
+                    GridHelper.save(defaultSaveFile, grid);//silent save (dosent use saveGame)
+                }
+                catch (std::ios_base::failure &e)
+                {
+                    System.out.println("Warning: The autosave failed. Try saving to a new location using \"save,\" or change file permissions.") ;
+                }
+            }
+            */
+        }
+        else
+        {
+            System.out.print("Sorry, but \"" + tile + "\" is not a valid tile. ");
+            System.out.println("Please try again.");
+        }
+
+        if (autoGrid)
+        {
+            System.out.println();
+            printGrid(grid);
+            System.out.println();
+        }
+
+        if (GridHelper.hasWon(grid))
+        {
+            System.out.println("YOU WON!!");//todo add trophy
+            System.out.println();
         }
     }
     
