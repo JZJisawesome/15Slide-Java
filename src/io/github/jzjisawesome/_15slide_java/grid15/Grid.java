@@ -43,8 +43,8 @@ public class Grid
         System.arraycopy(gridArray, 0, this.gridArray, 0, this.gridArray.length);
     }
     
-    public int[][] gridArray  = new int[16][2];
-    public int[][] index      = new int[4][4];
+    public int[][] gridArray  = new int[4][4];
+    public int[][] index      = new int[16][2];
     
     final public static int[][] GOAL_GRID =
     {
