@@ -71,7 +71,7 @@ public class CommandUI
             {
                 case "help":
                 {
-                    System.out.println("not implemented");
+                    displayHelp();
                     break;
                 }
                 case "demo":
@@ -243,11 +243,39 @@ public class CommandUI
         System.out.println("To learn about more awesome commands, type \"help.\"");
         System.out.println();
 
-        System.out.println("ENJOY 15Slide!!!");//todo addsmile
+        System.out.println("ENJOY 15Slide!!!");//todo add smile
         System.out.println();
     }
+    
+    static void displayHelp()
+    {
+        System.out.println();
+        System.out.println("Commands");
+
+        System.out.println("help\t\tDisplays a list of valid commands");
+        System.out.println("demo\t\tWalks you through the game");
+        System.out.println();
+
+        System.out.println("newgame\t\tEnds the current game and starts a new one");
+        System.out.println("slide\tnum\tSlides the tile with the number given");
+        System.out.println("print\tstr\tPrints the current \"grid\" or the \"goal\" grid");
+        System.out.println();
+
+        System.out.println("save\tstr\tSaves the game to the specified file");
+        System.out.println("load\tstr\tLoads the game from the specified file");
+        System.out.println();
+
+        System.out.println("options\t\tDisplays a list of valid options");
+        System.out.println("enable\tstr\tEnables the specified option");
+        System.out.println("disable\tstr\tDisables the specified option");
+        System.out.println();
+
+        System.out.println("about\t\tCool stuff about 15Slide");
+        System.out.println("licence\t\tLicence information for 15Slide and other libraries");
+        System.out.println("exit\t\tExit 15Slide");
+    }
+    
     /*
-        static void displayHelp();
         static void displayAbout();
         static void displayLicence();
     */
