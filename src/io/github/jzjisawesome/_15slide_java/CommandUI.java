@@ -35,7 +35,12 @@ import io.github.jzjisawesome._15slide_java.grid15.*;
 
 
 public class CommandUI
-{       
+{    
+    boolean autoSave    = true; ///<Autosave to last savefile
+    boolean autoGrid    = true; ///<Autoprint the grid
+    boolean autoExit    = false;///<Exit the game on win automatically
+    boolean easySlide   = true; ///<Slide a tile without having to type "slide" first
+    
     private boolean wantsToExit = false;
     
     public void start(Grid grid)
@@ -53,90 +58,94 @@ public class CommandUI
     {
         Scanner tokenScanner = new Scanner(inputtedLine);
         
-        
-        
-        String input = tokenScanner.next();
-        
-        //todo use Scanner.hasNextInt for easySlide
-        
-        switch (input)
+        if (easySlide && tokenScanner.hasNextInt())
         {
-            case "help":
+            System.out.println("not implemented");
+        }
+        else
+        {
+        
+            String input = tokenScanner.next();
+            
+            switch (input)
             {
-                System.out.println("not implemented");
-                break;
+                case "help":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "demo":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "newgame":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "slide":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "print":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "save":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "load":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "options":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "enable":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "disable":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "about":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "licence":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                case "exit":
+                {
+                    wantsToExit = true;//if user wants to exit
+                    break;
+                }
+                case "debug":
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
+                default:
+                {
+                    System.out.println("not implemented");
+                    break;
+                }
             }
-            case "demo":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "newgame":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "slide":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "print":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "save":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "load":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "options":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "enable":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "disable":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "about":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "licence":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            case "exit":
-            {
-                wantsToExit = true;//if user wants to exit
-                break;
-            }
-            case "debug":
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            default:
-            {
-                System.out.println("not implemented");
-                break;
-            }
-            }
+        }
     }
     
     public static void printGrid(Grid grid)
