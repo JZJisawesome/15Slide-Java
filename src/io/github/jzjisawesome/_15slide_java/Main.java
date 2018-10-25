@@ -22,10 +22,7 @@
 */
 package io.github.jzjisawesome._15slide_java;
 
-import io.github.jzjisawesome._15slide_java.grid15.GridHelper;
 import io.github.jzjisawesome._15slide_java.grid15.Grid;
-import io.github.jzjisawesome._15slide_java.CommandUI;
-
 
 //import java.io.*;
 
@@ -37,12 +34,16 @@ import io.github.jzjisawesome._15slide_java.CommandUI;
 public class Main
 {
     static Grid gameGrid = GridHelper.generateRandomGrid();
+    //static Grid gameGrid = new Grid(Grid.GOAL_GRID);
+    
     static CommandUI terminalUI = new CommandUI();
     /**
      * @param args The command line arguments
      */
     public static void main(String[] args)
     {
+        try
+        {
         System.out.println("15Slide-Java");
         
         System.out.println("Type \"help\" for a list of commands.");
@@ -54,5 +55,16 @@ public class Main
         System.out.println();
         
         terminalUI.start(gameGrid);
+        
+        
+        System.out.println("Thanks for playing 15Slide. Goodbye!");//todo add waving hand
+        }
+        catch (Exception e)
+        {
+            System.out.println("A fatal error has occured and 15Slide has crashed.");
+            System.out.println();
+            
+            throw e;
+        }
     }
 }
