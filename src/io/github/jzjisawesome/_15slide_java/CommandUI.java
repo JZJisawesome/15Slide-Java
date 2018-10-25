@@ -60,7 +60,7 @@ public class CommandUI
         
         if (easySlide && tokenScanner.hasNextInt())
         {
-            System.out.println("not implemented");
+            swapTile(tokenScanner.nextInt(), grid);
         }
         else
         {
