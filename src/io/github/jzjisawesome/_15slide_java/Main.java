@@ -22,6 +22,7 @@
 */
 package io.github.jzjisawesome._15slide_java;
 
+import io.github.jzjisawesome._15slide_java.grid15.GridHelper;
 import io.github.jzjisawesome._15slide_java.grid15.Grid;
 
 //import java.io.*;
