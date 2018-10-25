@@ -35,16 +35,27 @@ import io.github.jzjisawesome._15slide_java.grid15.*;
 
 
 public class CommandUI
-{    
+{       
     private boolean wantsToExit = false;
+    
+    public void start(Grid grid)
+    {
+        Scanner inputScanner = new Scanner(System.in);
+
+        while(!wantsToExit)
+        {
+            System.out.print("slide»");//unicode
+            handleCommand(inputScanner.nextLine(), grid);
+        }
+    }
     
     public void handleCommand(String inputtedLine, Grid grid)
     {
-        Scanner argumentScanner = new Scanner(inputtedLine);
+        Scanner tokenScanner = new Scanner(inputtedLine);
         
         
         
-        String input = argumentScanner.next();
+        String input = tokenScanner.next();
         
         //todo use Scanner.hasNextInt for easySlide
         
@@ -52,61 +63,62 @@ public class CommandUI
         {
             case "help":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "demo":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "newgame":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "slide":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "print":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "save":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "load":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "options":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "enable":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "disable":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "about":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             case "licence":
             {
+                System.out.println("not implemented");
                 break;
             }
             case "exit":
@@ -116,11 +128,12 @@ public class CommandUI
             }
             case "debug":
             {
-                //todo
+                System.out.println("not implemented");
                 break;
             }
             default:
             {
+                System.out.println("not implemented");
                 break;
             }
             }
