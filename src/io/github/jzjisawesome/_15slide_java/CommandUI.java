@@ -76,7 +76,7 @@ public class CommandUI
                 }
                 case "demo":
                 {
-                    System.out.println("not implemented");
+                    runDemo();
                     break;
                 }
                 case "newgame":
@@ -225,4 +225,30 @@ public class CommandUI
 
         System.out.println("┗━━━┻━━━┻━━━┻━━━┛");
     }
+    
+    private static void runDemo()
+    {
+        System.out.println();
+        System.out.println("15Slide-Java");
+
+        System.out.println("Welcome to 15Slide-Java, a fun slidy-tile game. The object is to make the grid like this:");
+        System.out.println();
+        
+        printGrid(new Grid(Grid.GOAL_GRID));
+        System.out.println();
+
+        System.out.println("Move the tiles agacient to the ◉◉◉ by typing a number and pressing enter.");
+        System.out.println("You can save or load a game by typing \"save\" or \"load\" and the file name.");
+        System.out.println("Start over by typing \"newgame.\"");
+        System.out.println("To learn about more awesome commands, type \"help.\"");
+        System.out.println();
+
+        System.out.println("ENJOY 15Slide!!!");//todo addsmile
+        System.out.println();
+    }
+    /*
+        static void displayHelp();
+        static void displayAbout();
+        static void displayLicence();
+    */
 }
