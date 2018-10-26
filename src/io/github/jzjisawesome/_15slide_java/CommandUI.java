@@ -26,6 +26,7 @@ package io.github.jzjisawesome._15slide_java;
 import java.util.*;
 
 import io.github.jzjisawesome._15slide_java.grid15.*;
+import java.io.*;
 
 
 /**
@@ -42,6 +43,7 @@ public class CommandUI
     private boolean easySlide   = true; ///<Slide a tile without having to type "slide" first
     
     private boolean wantsToExit = false;
+    private String defaultSaveFile = "";
     
     public void start(Grid grid)
     {
@@ -316,6 +318,52 @@ public class CommandUI
         }
 
         System.out.println("┗━━━┻━━━┻━━━┻━━━┛");
+    }
+    
+    private void saveGame(String saveFile, Grid grid)
+    {
+        System.out.println("Saving game to " + saveFile + "...");
+
+        try
+        {
+            GridHelper.save(saveFile, grid);
+
+            System.out.println("Save Complete!");
+            System.out.println();
+
+            //we only get here if above works
+            defaultSaveFile = saveFile;
+        }
+        catch (FileNotFoundException e)
+        {
+            System.err.println("Something went wrong while saving. ");
+            System.err.println("Try a diffrent file name/location, or change permissions to allow writing.");
+        }
+    }
+    
+    private void loadGame(String saveFile, Grid grid)
+    {
+        System.out.println("Loading game from " + saveFile + "...");
+
+        try
+        {
+            GridHelper.load(saveFile, grid);
+
+            System.out.println("Load Sucessfull!");
+            System.out.println();
+
+            //we only get here if above works
+            defaultSaveFile = saveFile;
+        }
+        catch (FileNotFoundException e)
+        {
+            System.err.println("Something went wrong while saving. ");
+            System.err.println("Try a diffrent file name/location, or change permissions to allow reading.");
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.err.print("Something went wrong while importing the grid. The file was read sucessfully, but the grid may be corrupted.");
+        }
     }
     
     private static void runDemo()

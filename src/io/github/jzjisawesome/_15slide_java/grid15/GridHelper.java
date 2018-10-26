@@ -246,7 +246,7 @@ public class GridHelper
             throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static void save(String saveFile, Grid grid) throws FileNotFoundException, IOException
+    public static void save(String saveFile, Grid grid) throws FileNotFoundException
     {
         if (hasValidGridArray(grid))
         {
@@ -262,7 +262,7 @@ public class GridHelper
             throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static void load(String saveFile, Grid grid) throws FileNotFoundException, IOException
+    public static void load(String saveFile, Grid grid) throws FileNotFoundException
     {
         Scanner saveFileScanner = new Scanner(new File(saveFile));
 
