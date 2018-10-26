@@ -157,10 +157,11 @@ public class CommandUI
                     break;
                 }
                 case "enable":
+                case "disable":
                 {
                     try
                     {
-                        handleOptions(tokenScanner.next(), true);
+                        handleOptions(tokenScanner.next(), input.equals("enable"));
                     }
                     catch (NoSuchElementException e)
                     {
@@ -168,19 +169,6 @@ public class CommandUI
                         System.out.println("Try typing \"options\" for a list.");
                     }
                     
-                    break;
-                }
-                case "disable":
-                {
-                    try
-                    {
-                        handleOptions(tokenScanner.next(), false);
-                    }
-                    catch (NoSuchElementException e)
-                    {
-                        System.out.println("Sorry, but you did not type an option. ");
-                        System.out.println("Try typing \"options\" for a list.");
-                    }
                     break;
                 }
                 case "about":
