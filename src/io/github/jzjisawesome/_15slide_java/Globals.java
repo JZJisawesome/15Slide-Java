@@ -34,4 +34,6 @@ final public class Globals
     final public static String SLIDE_VERSION_STRING = "0.2.0";
     
     final public static boolean CHEAT_MODE = false;
+    
+    final public static boolean DEBUG_MODE = false;
 }
