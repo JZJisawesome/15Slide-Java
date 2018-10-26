@@ -124,7 +124,7 @@ public class CommandUI
                 }
                 case "options":
                 {
-                    System.out.println("not implemented");
+                    displayOptions();
                     break;
                 }
                 case "enable":
@@ -292,6 +292,19 @@ public class CommandUI
         System.out.println("about\t\tCool stuff about 15Slide");
         System.out.println("licence\t\tLicence information for 15Slide and other libraries");
         System.out.println("exit\t\tExit 15Slide");
+    }
+    
+    private static void displayOptions()
+    {
+        System.out.println();
+        System.out.println("Options");
+        System.out.println();
+
+        System.out.println("autoSave bool\tIf enabled, automatically saves the game to the last savefile. Enabled by default.");
+        System.out.println("autoGrid bool\tIf enabled, autoprints the grid after certain commands. Enabled by default.");
+        System.out.println("autoExit bool\tIf enabled, automatically exits the game after you win. Disabled by default.");
+        System.out.println("easySlide bool\tAllows you to just type in a number rather than \"slide\" first. Enabled by default.");
+        System.out.println();
     }
     
     private static void displayAbout()
