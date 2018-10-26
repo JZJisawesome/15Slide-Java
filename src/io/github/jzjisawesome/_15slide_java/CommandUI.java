@@ -462,7 +462,8 @@ public class CommandUI
         System.out.println();
 
         System.out.println("15Slide Version " + Globals.SLIDE_VERSION_STRING);
-        System.out.println("CHEATING BUILD");
+        if (Globals.CHEAT_MODE)
+            System.out.println("CHEATING BUILD");
         System.out.println();
 
         System.out.println("Running on: " + System.getProperty("os.name") + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch"));
