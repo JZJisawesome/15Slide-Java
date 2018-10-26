@@ -66,7 +66,7 @@ public class CommandUI
             }
             catch (NoSuchElementException e)
             {
-                System.out.println("Sorry, but you did not type a tile number. Please try again.");
+                System.err.println("Sorry, but you did not type a tile number. Please try again.");
             }
         }
         else
@@ -112,7 +112,7 @@ public class CommandUI
                     }
                     catch (NoSuchElementException e)
                     {
-                        System.out.println("Sorry, but you did not type a tile number. Please try again.");
+                        System.err.println("Sorry, but you did not type a tile number. Please try again.");
                     }
                     
                     break;
@@ -131,14 +131,14 @@ public class CommandUI
                             printGrid(new Grid (Grid.GOAL_GRID));
                         else
                         {
-                            System.out.print("Sorry, but \"" + input + "\" is not a valid grid. ");
-                            System.out.print("Try \"grid\" or \"goal.\"");
+                            System.err.println("Sorry, but \"" + input + "\" is not a valid grid. ");
+                            System.err.println("Try \"grid\" or \"goal.\"");
                         }
                     }
                     catch (NoSuchElementException e)
                     {
-                        System.out.print("Sorry, but you did not type a grid. ");
-                        System.out.print("Try \"grid\" or \"goal.\"");
+                        System.err.println("Sorry, but you did not type a grid. ");
+                        System.err.print("Try \"grid\" or \"goal.\"");
                     }
                         
                     System.out.println();
@@ -146,12 +146,12 @@ public class CommandUI
                 }
                 case "save":
                 {
-                    System.out.println("not implemented");
+                    System.err.println("not implemented");
                     break;
                 }
                 case "load":
                 {
-                    System.out.println("not implemented");
+                    System.err.println("not implemented");
                     break;
                 }
                 case "options":
@@ -168,8 +168,8 @@ public class CommandUI
                     }
                     catch (NoSuchElementException e)
                     {
-                        System.out.println("Sorry, but you did not type an option. ");
-                        System.out.println("Try typing \"options\" for a list.");
+                        System.err.println("Sorry, but you did not type an option. ");
+                        System.err.println("Try typing \"options\" for a list.");
                     }
                     
                     break;
@@ -191,15 +191,15 @@ public class CommandUI
                 }
                 case "debug":
                 {
-                    System.out.println("not implemented");
+                    System.err.println("not implemented");
                     break;
                 }
                 case "":
                     break;
                 default:
                 {
-                    System.out.print("Sorry, but \"" + input + "\" is not a valid command. ");
-                    System.out.println("Try typing \"help\" for a list.");
+                    System.err.print("Sorry, but \"" + input + "\" is not a valid command. ");
+                    System.err.println("Try typing \"help\" for a list.");
                     break;
                 }
             }
@@ -229,7 +229,7 @@ public class CommandUI
             */
         }
         else
-            System.out.println("Sorry, but \"" + tile + "\" is not a valid tile. Please try again.");
+            System.err.println("Sorry, but \"" + tile + "\" is not a valid tile. Please try again.");
 
         if (autoGrid)
         {
@@ -276,8 +276,8 @@ public class CommandUI
             }
             default:
             {
-                System.out.println("Sorry, but \"" + option + "\" is not a valid option. ");
-                System.out.println("Try typing \"options\" for a list.");
+                System.err.println("Sorry, but \"" + option + "\" is not a valid option. ");
+                System.err.println("Try typing \"options\" for a list.");
             }
         }
     }

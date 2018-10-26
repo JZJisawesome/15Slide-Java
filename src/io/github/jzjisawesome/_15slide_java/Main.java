@@ -72,8 +72,8 @@ public class Main
         }
         catch (Exception e)
         {
-            System.out.println("A fatal error has occured and 15Slide has crashed.");
-            System.out.println();
+            System.err.println("A fatal error has occured and 15Slide has crashed.");
+            System.err.println();
             
             throw e;
         }
