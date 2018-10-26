@@ -183,7 +183,7 @@ public class CommandUI
                 {
                     try
                     {
-                        handleOptions(tokenScanner.nextLine(), input.equals("enable"));
+                        handleOptions(tokenScanner.next(), input.equals("enable"));
                     }
                     catch (NoSuchElementException e)
                     {
@@ -233,19 +233,19 @@ public class CommandUI
 
             wantsToExit = autoExit && GridHelper.hasWon(grid);//if the game is over and autoExit is on then exit
 
-            /*
-            if (autoSave && (defaultSaveFile != ""))//if auto save is on and there is a default save file
+            
+            if (autoSave && !(defaultSaveFile.equals("")))//if auto save is on and there is a default save file
             {
                 try
                 {
                     GridHelper.save(defaultSaveFile, grid);//silent save (dosent use saveGame)
                 }
-                catch (std::ios_base::failure &e)
+                catch (FileNotFoundException e)
                 {
-                    System.out.println("Warning: The autosave failed. Try saving to a new location using \"save,\" or change file permissions.") ;
+                    System.err.println("Warning: The autosave failed. Try saving to a new location using \"save\", or change file permissions.") ;
                 }
             }
-            */
+            
         }
         else
             System.err.println("Sorry, but \"" + tile + "\" is not a valid tile. Please try again.");
@@ -372,14 +372,10 @@ public class CommandUI
             //we only get here if above works
             defaultSaveFile = saveFile;
         }
-        catch (FileNotFoundException e)
+        catch (FileNotFoundException | IllegalArgumentException | NoSuchElementException e)
         {
             System.err.println("Something went wrong while loading. ");
             System.err.println("Try a diffrent file name/location, or change permissions to allow reading.");
-        }
-        catch (IllegalArgumentException e)
-        {
-            System.err.print("Something went wrong while importing the grid. The file was read sucessfully, but the grid may be corrupted.");
         }
     }
     
