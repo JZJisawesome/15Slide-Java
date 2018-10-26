@@ -252,7 +252,6 @@ public class GridHelper
         {
             PrintWriter saveFileWriter = new PrintWriter(saveFile);
 
-            //write grid to buffer
             for(int i = 0; i < 4; ++i)
                 for(int j = 0; j < 4; ++j)
                     saveFileWriter.print(grid.gridArray[i][j] + " ");
@@ -263,8 +262,16 @@ public class GridHelper
             throw new IllegalArgumentException("Grid invalid!");
     }
     
-    public static void load(String saveFile, Grid grid)
+    public static void load(String saveFile, Grid grid) throws FileNotFoundException, IOException
     {
-        
+        Scanner saveFileScanner = new Scanner(new File(saveFile));
+
+        for(int i = 0; i < 4; ++i)
+            for(int j = 0; j < 4; ++j)
+                grid.gridArray[i][j] = saveFileScanner.nextInt();
+
+        saveFileScanner.close();
+
+        reIndex(grid);
     }
 }

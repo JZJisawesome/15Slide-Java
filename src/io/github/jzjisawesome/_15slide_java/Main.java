@@ -41,7 +41,7 @@ public class Main
     /**
      * @param args The command line arguments
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         try
         {
@@ -56,6 +56,7 @@ public class Main
                 
             
         System.out.println("15Slide-Java");
+        System.out.println();
         
         System.out.println("Type \"help\" for a list of commands.");
         System.out.println("If it's your first time playing, type \"demo.\"");
