@@ -23,7 +23,7 @@
 
 package io.github.jzjisawesome._15slide_java;
 
-import java.util.Scanner;
+import java.util.*;
 
 import io.github.jzjisawesome._15slide_java.grid15.*;
 
@@ -64,8 +64,13 @@ public class CommandUI
         }
         else
         {
-        
-            String input = tokenScanner.next();
+            String input = "";
+            
+            try
+            {
+                input = tokenScanner.next();
+            }
+            catch (NoSuchElementException e) {}//no need to do anything
             
             switch (input)
             {
@@ -157,6 +162,8 @@ public class CommandUI
                     System.out.println("not implemented");
                     break;
                 }
+                case "":
+                    break;
                 default:
                 {
                     System.out.print("Sorry, but \"" + input + "\" is not a valid command. ");
