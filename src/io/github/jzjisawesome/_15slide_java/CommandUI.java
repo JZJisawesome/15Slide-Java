@@ -60,7 +60,14 @@ public class CommandUI
         
         if (easySlide && tokenScanner.hasNextInt())
         {
-            swapTile(tokenScanner.nextInt(), grid);
+            try
+            {
+                swapTile(tokenScanner.nextInt(), grid);
+            }
+            catch (NoSuchElementException e)
+            {
+                System.out.println("Sorry, but you did not type a tile number. Please try again.");
+            }
         }
         else
         {
@@ -71,6 +78,7 @@ public class CommandUI
                 input = tokenScanner.next();
             }
             catch (NoSuchElementException e) {}//no need to do anything
+            
             
             switch (input)
             {
@@ -95,22 +103,38 @@ public class CommandUI
                 }
                 case "slide":
                 {
-                    swapTile(tokenScanner.nextInt(), grid);
+                    try
+                    {
+                        swapTile(tokenScanner.nextInt(), grid);
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.out.println("Sorry, but you did not type a tile number. Please try again.");
+                    }
+                    
                     break;
                 }
                 case "print":
                 {
                     System.out.println();
                     
-                    input = tokenScanner.next();
-                    
-                    if (input.equals("grid"))
-                        printGrid(grid);
-                    else if (input.equals("goal"))
-                        printGrid(new Grid (Grid.GOAL_GRID));
-                    else
+                    try
                     {
-                        System.out.print("Sorry, but \"" + input + "\" is not a valid grid. ");
+                        input = tokenScanner.next();
+                        
+                        if (input.equals("grid"))
+                            printGrid(grid);
+                        else if (input.equals("goal"))
+                            printGrid(new Grid (Grid.GOAL_GRID));
+                        else
+                        {
+                            System.out.print("Sorry, but \"" + input + "\" is not a valid grid. ");
+                            System.out.print("Try \"grid\" or \"goal.\"");
+                        }
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.out.print("Sorry, but you did not type a grid. ");
                         System.out.print("Try \"grid\" or \"goal.\"");
                     }
                         
@@ -134,12 +158,29 @@ public class CommandUI
                 }
                 case "enable":
                 {
-                    handleOptions(tokenScanner.next(), true);
+                    try
+                    {
+                        handleOptions(tokenScanner.next(), true);
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.out.println("Sorry, but you did not type an option. ");
+                        System.out.println("Try typing \"options\" for a list.");
+                    }
+                    
                     break;
                 }
                 case "disable":
                 {
-                    handleOptions(tokenScanner.next(), false);
+                    try
+                    {
+                        handleOptions(tokenScanner.next(), false);
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.out.println("Sorry, but you did not type an option. ");
+                        System.out.println("Try typing \"options\" for a list.");
+                    }
                     break;
                 }
                 case "about":
@@ -176,7 +217,7 @@ public class CommandUI
     
     private void swapTile(int tile, Grid grid)
     {
-        if (GridHelper.validMove(tile, grid))//instead of a try catch block
+        if (tile > 0 && tile < 16 && GridHelper.validMove(tile, grid))//instead of a try catch block
         {
             GridHelper.swapTile(tile, grid);
 
@@ -197,10 +238,7 @@ public class CommandUI
             */
         }
         else
-        {
-            System.out.print("Sorry, but \"" + tile + "\" is not a valid tile. ");
-            System.out.println("Please try again.");
-        }
+            System.out.println("Sorry, but \"" + tile + "\" is not a valid tile. Please try again.");
 
         if (autoGrid)
         {
