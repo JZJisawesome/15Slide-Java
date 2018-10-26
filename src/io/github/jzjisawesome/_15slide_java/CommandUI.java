@@ -145,7 +145,8 @@ public class CommandUI
                 }
                 default:
                 {
-                    System.out.println("not implemented");
+                    System.out.print("Sorry, but \"" + input + "\" is not a valid command. ");
+                    System.out.println("Try typing \"help\" for a list.");
                     break;
                 }
             }
