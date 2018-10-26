@@ -45,6 +45,9 @@ public class Main
     {
         try
         {
+            if (Globals.DEBUG_MODE)
+                System.out.println("(debug)Debug mode enabled");
+            
             if (!Globals.CHEAT_MODE)
                 gameGrid = GridHelper.generateRandomGrid();
             else
@@ -75,6 +78,9 @@ public class Main
         {
             System.err.println("A fatal error has occured and 15Slide has crashed.");
             System.err.println();
+            
+            if (Globals.DEBUG_MODE)
+                System.out.println("(debug)Rethrowing exception");
             
             throw e;
         }

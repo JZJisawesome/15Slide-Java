@@ -104,6 +104,10 @@ public class CommandUI
                     System.out.println();
                     CommandUI.printGrid(grid);
                     System.out.println();
+                    
+                    if (Globals.DEBUG_MODE)
+                        System.out.println("(debug)Reseting defaultSaveFile");
+                    
                     break;
                 }
                 case "slide":
@@ -462,6 +466,9 @@ public class CommandUI
         System.out.println();
 
         System.out.println("15Slide Version " + Globals.SLIDE_VERSION_STRING);
+        if (Globals.DEBUG_MODE)
+            System.out.println("Debug build, \"debug\" command avaliable");
+        
         System.out.println("CHEATING BUILD");
         System.out.println();
 
