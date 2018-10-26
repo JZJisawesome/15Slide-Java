@@ -140,7 +140,7 @@ public class CommandUI
                     catch (NoSuchElementException e)
                     {
                         System.err.println("Sorry, but you did not type a grid. ");
-                        System.err.print("Try \"grid\" or \"goal.\"");
+                        System.err.println("Try \"grid\" or \"goal.\"");
                     }
                         
                     System.out.println();
@@ -148,12 +148,29 @@ public class CommandUI
                 }
                 case "save":
                 {
-                    System.err.println("not implemented");
+                    try
+                    {
+                        saveGame(tokenScanner.next(), grid);
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.err.println("Sorry, but you did not type a save file. ");
+                        System.err.println("Try \"help\" for information");
+                    }
+                    
                     break;
                 }
                 case "load":
                 {
-                    System.err.println("not implemented");
+                    try
+                    {
+                        loadGame(tokenScanner.next(), grid);
+                    }
+                    catch (NoSuchElementException e)
+                    {
+                        System.err.println("Sorry, but you did not type a save file. ");
+                        System.err.println("Try \"help\" for information");
+                    }
                     break;
                 }
                 case "options":
@@ -166,7 +183,7 @@ public class CommandUI
                 {
                     try
                     {
-                        handleOptions(tokenScanner.next(), input.equals("enable"));
+                        handleOptions(tokenScanner.nextLine(), input.equals("enable"));
                     }
                     catch (NoSuchElementException e)
                     {
@@ -200,7 +217,7 @@ public class CommandUI
                     break;
                 default:
                 {
-                    System.err.print("Sorry, but \"" + input + "\" is not a valid command. ");
+                    System.err.println("Sorry, but \"" + input + "\" is not a valid command. ");
                     System.err.println("Try typing \"help\" for a list.");
                     break;
                 }
@@ -357,7 +374,7 @@ public class CommandUI
         }
         catch (FileNotFoundException e)
         {
-            System.err.println("Something went wrong while saving. ");
+            System.err.println("Something went wrong while loading. ");
             System.err.println("Try a diffrent file name/location, or change permissions to allow reading.");
         }
         catch (IllegalArgumentException e)
