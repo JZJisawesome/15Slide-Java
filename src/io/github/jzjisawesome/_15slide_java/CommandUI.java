@@ -37,7 +37,7 @@ import java.io.*;
 
 public class CommandUI
 {    
-    private boolean autoSave    = true; ///<Autosave to last savefile
+    private boolean autoSave    = Globals.AUTOSAVE_DEFAULT; ///<Autosave to last savefile
     private boolean autoGrid    = true; ///<Autoprint the grid
     private boolean autoExit    = false;///<Exit the game on win automatically
     private boolean easySlide   = true; ///<Slide a tile without having to type "slide" first
@@ -51,7 +51,7 @@ public class CommandUI
 
         while(!wantsToExit)
         {
-            System.out.print("slide»");//unicode
+            System.out.print("slide»");
             handleCommand(inputScanner.nextLine(), grid);
         }
     }
