@@ -94,6 +94,9 @@ public class CommandUI
                 }
                 case "newgame":
                 {
+                    if (Globals.CHEAT_MODE)
+                        System.out.println("BUT WHY? YOU WERE SO CLOSE!");
+                    
                     grid = GridHelper.generateRandomGrid();
                     
                     System.out.println();
@@ -239,6 +242,11 @@ public class CommandUI
         {
             System.out.println("YOU WON!!");//todo add trophy
             System.out.println();
+            
+            if (Globals.CHEAT_MODE)
+            {
+                System.out.println("BUT YOU CHEATED (CHEAT_MODE = true)");
+            }
         }
     }
     
@@ -393,6 +401,7 @@ public class CommandUI
         System.out.println();
 
         System.out.println("15Slide Version " + Globals.SLIDE_VERSION_STRING);
+        System.out.println("CHEATING BUILD");
         System.out.println();
 
         System.out.println("Running on: " + System.getProperty("os.name") + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch"));

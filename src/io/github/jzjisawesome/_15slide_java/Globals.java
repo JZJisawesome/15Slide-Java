@@ -32,4 +32,6 @@ package io.github.jzjisawesome._15slide_java;
 final public class Globals
 {
     final public static String SLIDE_VERSION_STRING = "0.1.4";
+    
+    final public static boolean CHEAT_MODE = false;
 }

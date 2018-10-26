@@ -34,7 +34,7 @@ import io.github.jzjisawesome._15slide_java.grid15.Grid;
  */
 public class Main
 {
-    static Grid gameGrid = GridHelper.generateRandomGrid();
+    static Grid gameGrid = null;
     //static Grid gameGrid = new Grid(Grid.GOAL_GRID);
     
     static CommandUI terminalUI = new CommandUI();
@@ -45,6 +45,16 @@ public class Main
     {
         try
         {
+            if (!Globals.CHEAT_MODE)
+                gameGrid = GridHelper.generateRandomGrid();
+            else
+            {
+                gameGrid = new Grid (Grid.GOAL_GRID);
+                GridHelper.reIndex(gameGrid);
+                GridHelper.swapTile(15, gameGrid);
+            }
+                
+            
         System.out.println("15Slide-Java");
         
         System.out.println("Type \"help\" for a list of commands.");
