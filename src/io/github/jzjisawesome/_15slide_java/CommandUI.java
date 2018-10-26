@@ -121,12 +121,12 @@ public class CommandUI
                 }
                 case "about":
                 {
-                    System.out.println("not implemented");
+                    displayAbout();
                     break;
                 }
                 case "licence":
                 {
-                    System.out.println("not implemented");
+                    displayLicence();
                     break;
                 }
                 case "exit":
@@ -247,7 +247,7 @@ public class CommandUI
         System.out.println();
     }
     
-    static void displayHelp()
+    private static void displayHelp()
     {
         System.out.println();
         System.out.println("Commands");
@@ -275,8 +275,98 @@ public class CommandUI
         System.out.println("exit\t\tExit 15Slide");
     }
     
-    /*
-        static void displayAbout();
-        static void displayLicence();
-    */
+    private static void displayAbout()
+    {
+        System.out.println();
+        System.out.println("15Slide-Java");
+        System.out.println("Copyright 2018 John Jekel");
+        System.out.println("See https://github.com/JZJisawesome/15Slide-Java/blob/master/LICENSE for the terms");
+        System.out.println();
+
+        System.out.println();
+        System.out.println("15Slide-Java is a fun, cross-platform, slidy-tile game ported from the original 15Slide project.");
+        System.out.println("It is intended to coexist with the original.");
+        System.out.println("If you find some problem or want a new feature, go create a new issue at https://github.com/JZJisawesome/15Slide-Java/issues");
+        System.out.println("Type \"licence\" for 15Slide-Java and other licencing.");
+        System.out.println();
+
+
+        System.out.println();
+        System.out.println("Additional Information");
+        System.out.println();
+
+        System.out.println("15Slide Version " + Globals.SLIDE_VERSION_STRING);
+        System.out.println();
+
+        System.out.println("Running on: " + System.getProperty("os.name") + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch"));
+        System.out.println("Java Runtime: " + System.getProperty("java.vendor") + " " + System.getProperty("java.version"));
+        System.out.println("Java VM: " + System.getProperty("java.vm.vendor") + " " + System.getProperty("java.vm.name") + " " + System.getProperty("java.vm.version"));
+        System.out.println();
+    }
+    private static void displayLicence()
+    {
+        System.out.println();
+        System.out.println("Licencing");
+        System.out.println();
+
+
+        System.out.println();
+        System.out.println("15Slide-Java");
+        System.out.println("MIT License");
+        System.out.println();
+
+        System.out.println("Copyright (c) 2018 John Jekel");
+        System.out.println();
+
+        System.out.println("Permission is hereby granted, free of charge, to any person obtaining a copy");
+        System.out.println("of this software and associated documentation files (the \"Software\"), to deal");
+        System.out.println("in the Software without restriction, including without limitation the rights");
+        System.out.println("to use, copy, modify, merge, publish, distribute, sublicense, and/or sell");
+        System.out.println("copies of the Software, and to permit persons to whom the Software is");
+        System.out.println("furnished to do so, subject to the following conditions:");
+        System.out.println();
+
+        System.out.println("The above copyright notice and this permission notice shall be included in all");
+        System.out.println("copies or substantial portions of the Software.");
+        System.out.println();
+
+        System.out.println("THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR");
+        System.out.println("IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,");
+        System.out.println("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE");
+        System.out.println("AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER");
+        System.out.println("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,");
+        System.out.println("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE");
+        System.out.println("SOFTWARE.");
+        System.out.println();
+        
+        
+        System.out.println();
+        System.out.println("15Slide (Original)");
+        System.out.println("MIT License");
+        System.out.println();
+
+        System.out.println("Copyright (c) 2017-2018 John Jekel");
+        System.out.println();
+
+        System.out.println("Permission is hereby granted, free of charge, to any person obtaining a copy");
+        System.out.println("of this software and associated documentation files (the \"Software\"), to deal");
+        System.out.println("in the Software without restriction, including without limitation the rights");
+        System.out.println("to use, copy, modify, merge, publish, distribute, sublicense, and/or sell");
+        System.out.println("copies of the Software, and to permit persons to whom the Software is");
+        System.out.println("furnished to do so, subject to the following conditions:");
+        System.out.println();
+
+        System.out.println("The above copyright notice and this permission notice shall be included in all");
+        System.out.println("copies or substantial portions of the Software.");
+        System.out.println();
+
+        System.out.println("THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR");
+        System.out.println("IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,");
+        System.out.println("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE");
+        System.out.println("AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER");
+        System.out.println("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,");
+        System.out.println("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE");
+        System.out.println("SOFTWARE.");
+        System.out.println();
+    }
 }
