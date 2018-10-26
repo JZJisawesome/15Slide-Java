@@ -36,10 +36,10 @@ import io.github.jzjisawesome._15slide_java.grid15.*;
 
 public class CommandUI
 {    
-    boolean autoSave    = true; ///<Autosave to last savefile
-    boolean autoGrid    = true; ///<Autoprint the grid
-    boolean autoExit    = false;///<Exit the game on win automatically
-    boolean easySlide   = true; ///<Slide a tile without having to type "slide" first
+    private boolean autoSave    = true; ///<Autosave to last savefile
+    private boolean autoGrid    = true; ///<Autoprint the grid
+    private boolean autoExit    = false;///<Exit the game on win automatically
+    private boolean easySlide   = true; ///<Slide a tile without having to type "slide" first
     
     private boolean wantsToExit = false;
     
@@ -129,12 +129,12 @@ public class CommandUI
                 }
                 case "enable":
                 {
-                    System.out.println("not implemented");
+                    handleOptions(tokenScanner.next(), true);
                     break;
                 }
                 case "disable":
                 {
-                    System.out.println("not implemented");
+                    handleOptions(tokenScanner.next(), false);
                     break;
                 }
                 case "about":
@@ -206,6 +206,38 @@ public class CommandUI
         {
             System.out.println("YOU WON!!");//todo add trophy
             System.out.println();
+        }
+    }
+    
+    private void handleOptions(String option, boolean optionSetting)
+    {
+        switch (option)
+        {
+            case "autoSave":
+            {
+                this.autoSave = optionSetting;
+                break;
+            }
+            case "autoGrid":
+            {
+                this.autoGrid = optionSetting;
+                break;
+            }
+            case "autoExit":
+            {
+                this.autoExit = optionSetting;
+                break;
+            }
+            case "easySlide":
+            {
+                this.easySlide = optionSetting;
+                break;
+            }
+            default:
+            {
+                System.out.println("Sorry, but \"" + option + "\" is not a valid option. ");
+                System.out.println("Try typing \"options\" for a list.");
+            }
         }
     }
     
