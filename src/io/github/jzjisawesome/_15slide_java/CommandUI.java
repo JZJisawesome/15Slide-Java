@@ -95,7 +95,21 @@ public class CommandUI
                 }
                 case "print":
                 {
-                    System.out.println("not implemented");
+                    System.out.println();
+                    
+                    input = tokenScanner.next();
+                    
+                    if (input.equals("grid"))
+                        printGrid(grid);
+                    else if (input.equals("goal"))
+                        printGrid(new Grid (Grid.GOAL_GRID));
+                    else
+                    {
+                        System.out.print("Sorry, but \"" + input + "\" is not a valid grid. ");
+                        System.out.print("Try \"grid\" or \"goal.\"");
+                    }
+                        
+                    System.out.println();
                     break;
                 }
                 case "save":
