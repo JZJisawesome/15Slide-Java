@@ -81,7 +81,11 @@ public class CommandUI
                 }
                 case "newgame":
                 {
-                    System.out.println("not implemented");
+                    grid = GridHelper.generateRandomGrid();
+                    
+                    System.out.println();
+                    CommandUI.printGrid(grid);
+                    System.out.println();
                     break;
                 }
                 case "slide":
