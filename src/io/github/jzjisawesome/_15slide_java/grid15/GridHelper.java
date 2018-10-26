@@ -23,6 +23,7 @@
 package io.github.jzjisawesome._15slide_java.grid15;
 
 import java.util.*;
+import java.io.*;
 
 /**
  *
@@ -243,5 +244,27 @@ public class GridHelper
         }
         else
             throw new IllegalArgumentException("Grid invalid!");
+    }
+    
+    public static void save(String saveFile, Grid grid) throws FileNotFoundException, IOException
+    {
+        if (hasValidGridArray(grid))
+        {
+            PrintWriter saveFileWriter = new PrintWriter(saveFile);
+
+            //write grid to buffer
+            for(int i = 0; i < 4; ++i)
+                for(int j = 0; j < 4; ++j)
+                    saveFileWriter.print(grid.gridArray[i][j] + " ");
+            
+            saveFileWriter.close();
+        }
+        else
+            throw new IllegalArgumentException("Grid invalid!");
+    }
+    
+    public static void load(String saveFile, Grid grid)
+    {
+        
     }
 }
