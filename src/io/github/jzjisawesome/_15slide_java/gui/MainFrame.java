@@ -25,8 +25,10 @@ package io.github.jzjisawesome._15slide_java.gui;
 
 import io.github.jzjisawesome._15slide_java.grid15.GridHelper;
 import io.github.jzjisawesome._15slide_java.grid15.Grid;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
+import java.awt.event.WindowListener;
 
 /**
  *
@@ -34,17 +36,57 @@ import javax.swing.*;
  */
 
 
-public class SwingSlide implements Runnable
+public class MainFrame extends JFrame
 {
-    MainFrame frame = null;
-    
-    public SwingSlide(Grid grid)
+    public MainFrame(Grid grid)
     {
-        frame = new MainFrame(grid);
+        setTitle("15Slide-Java");
+        
+        addWindowListener(new MainFrameWindowListener(this));
     }
     
-    public void run()
+    private void onClose()
     {
-        frame.setVisible(true);
+        System.exit(0);
+    }
+    
+    private class MainFrameWindowListener implements WindowListener
+    {
+        MainFrame parent = null;
+        
+        private MainFrameWindowListener(MainFrame jFrame)
+        {
+            parent = jFrame;
+        }
+        
+        public void windowOpened(WindowEvent arg0)
+        {
+        }
+
+        public void windowClosing(WindowEvent arg0)
+        {
+            parent.onClose();
+        }
+
+        public void windowClosed(WindowEvent arg0)
+        {
+        }
+
+        public void windowIconified(WindowEvent arg0)
+        {
+        }
+
+        public void windowDeiconified(WindowEvent arg0)
+        {
+        }
+
+        public void windowActivated(WindowEvent arg0)
+        {
+        }
+
+        public void windowDeactivated(WindowEvent arg0)
+        {
+        }
+        
     }
 }
