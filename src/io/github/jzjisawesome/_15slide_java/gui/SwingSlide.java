@@ -21,7 +21,12 @@
  * SOFTWARE.
  */
 
-package io.github.jzjisawesome._15slide_java;
+package io.github.jzjisawesome._15slide_java.gui;
+
+import io.github.jzjisawesome._15slide_java.grid15.GridHelper;
+import io.github.jzjisawesome._15slide_java.grid15.Grid;
+
+import javax.swing.*;
 
 /**
  *
@@ -29,13 +34,15 @@ package io.github.jzjisawesome._15slide_java;
  */
 
 
-final public class Globals
+public class SwingSlide implements Runnable
 {
-    final public static String SLIDE_VERSION_STRING = "0.2.0";
+    public SwingSlide(Grid grid)
+    {
+        
+    }
     
-    final public static boolean CHEAT_MODE = false;
-    
-    final public static boolean AUTOSAVE_DEFAULT = true;
-    
-    final public static boolean GUI = true;
+    public void run()
+    {
+        
+    }
 }

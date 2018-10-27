@@ -24,8 +24,9 @@ package io.github.jzjisawesome._15slide_java;
 
 import io.github.jzjisawesome._15slide_java.grid15.GridHelper;
 import io.github.jzjisawesome._15slide_java.grid15.Grid;
+import io.github.jzjisawesome._15slide_java.gui.SwingSlide;
 
-//import java.io.*;
+import javax.swing.SwingUtilities;
 
 /**
  * @todo documentation :)
@@ -35,9 +36,7 @@ import io.github.jzjisawesome._15slide_java.grid15.Grid;
 public class Main
 {
     static Grid gameGrid = null;
-    //static Grid gameGrid = new Grid(Grid.GOAL_GRID);
     
-    static CommandUI terminalUI = new CommandUI();
     /**
      * @param args The command line arguments
      */
@@ -55,21 +54,29 @@ public class Main
             }
                 
             
-        System.out.println("15Slide-Java");
-        System.out.println();
-        
-        System.out.println("Type \"help\" for a list of commands.");
-        System.out.println("If it's your first time playing, type \"demo.\"");
-        
-        System.out.println();
-        CommandUI.printGrid(gameGrid);
-        System.out.println();
-        System.out.println();
-        
-        terminalUI.start(gameGrid);
-        
-        
-        System.out.println("Thanks for playing 15Slide. Goodbye!");//todo add waving hand
+            System.out.println("15Slide-Java");
+            System.out.println();
+
+            if (Globals.GUI)
+                SwingUtilities.invokeLater(new SwingSlide(gameGrid));
+            else
+            {
+                CommandUI terminalUI = new CommandUI();
+
+                System.out.println("Type \"help\" for a list of commands.");
+                System.out.println("If it's your first time playing, type \"demo.\"");
+
+                System.out.println();
+                CommandUI.printGrid(gameGrid);
+                System.out.println();
+                System.out.println();
+
+                terminalUI.start(gameGrid);
+
+
+                System.out.println("Thanks for playing 15Slide. Goodbye!");//todo add waving hand
+            }
+
         }
         catch (Exception e)
         {
